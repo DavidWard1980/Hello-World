@@ -1,0 +1,1266 @@
+
+Apache 2.2 mod_php
+
+Wed Nov 13 12:41:58 EST 2013
+=================Begin================
+Non-keepalvie test on port 2010:
+./ab_new -n 50000 -c 100 http://192.168.0.100:2010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        Apache/2.2.25
+Server Hostname:        192.168.0.100
+Server Port:            2010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   15.871 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Total transferred:      12750000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    3150.39 [#/sec] (mean)
+Time per request:       31.742 [ms] (mean)
+Time per request:       0.317 [ms] (mean, across all concurrent requests)
+Transfer rate:          784.52 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:     1   32  25.6     15     516
+Waiting:        1   31  25.4     15     494
+Total:          4   32  25.6     15     516
+
+Percentage of the requests served within a certain time (ms)
+  50%     15
+  66%     20
+  75%     67
+  80%     67
+  90%     68
+  95%     70
+  98%     75
+  99%     80
+ 100%    516 (longest request)
+keepalvie test on port 2010:
+./ab_new -k -n 50000 -c 100 http://192.168.0.100:2010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        Apache/2.2.25
+Server Hostname:        192.168.0.100
+Server Port:            2010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   13.235 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    49575
+Total transferred:      14531361 bytes
+HTML transferred:       650000 bytes
+Requests per second:    3777.76 [#/sec] (mean)
+Time per request:       26.471 [ms] (mean)
+Time per request:       0.265 [ms] (mean, across all concurrent requests)
+Transfer rate:          1072.19 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:     0   26  32.4     13     718
+Waiting:        0   26  32.4     13     718
+Total:          0   26  32.4     13     718
+
+Percentage of the requests served within a certain time (ms)
+  50%     13
+  66%     18
+  75%     64
+  80%     65
+  90%     72
+  95%     83
+  98%    102
+  99%    116
+ 100%    718 (longest request)
+===================DONE=================
+
+Apache 2.2 php-fpm
+
+
+Thu Nov 14 15:10:31 EST 2013
+=================Begin================
+Non-keepalvie test on port 2010:
+./ab_new -n 50000 -c 100 http://192.168.0.100:2010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        Apache/2.2.25
+Server Hostname:        192.168.0.100
+Server Port:            2010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   32.765 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Total transferred:      12100000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    1526.03 [#/sec] (mean)
+Time per request:       65.529 [ms] (mean)
+Time per request:       0.655 [ms] (mean, across all concurrent requests)
+Transfer rate:          360.64 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:     3   65  28.0     80     265
+Waiting:        3   65  28.0     80     265
+Total:          5   65  28.0     80     265
+
+Percentage of the requests served within a certain time (ms)
+  50%     80
+  66%     82
+  75%     86
+  80%     86
+  90%     87
+  95%     90
+  98%     94
+  99%     98
+ 100%    265 (longest request)
+keepalvie test on port 2010:
+./ab_new -k -n 50000 -c 100 http://192.168.0.100:2010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        Apache/2.2.25
+Server Hostname:        192.168.0.100
+Server Port:            2010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   33.026 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    0
+Total transferred:      12100000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    1513.97 [#/sec] (mean)
+Time per request:       66.052 [ms] (mean)
+Time per request:       0.661 [ms] (mean, across all concurrent requests)
+Transfer rate:          357.79 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:    21   66  27.8     81     270
+Waiting:       21   66  27.8     81     270
+Total:         24   66  27.8     81     270
+
+Percentage of the requests served within a certain time (ms)
+  50%     81
+  66%     83
+  75%     85
+  80%     86
+  90%     87
+  95%     89
+  98%     93
+  99%     99
+ 100%    270 (longest request)
+===================DONE=================
+
+Apache 2.2 suPHP
+
+Thu Nov 14 10:27:59 EST 2013
+=================Begin================
+Non-keepalvie test on port 2010:
+./ab_new -n 50000 -c 100 http://192.168.0.100:2010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        Apache/2.2.25
+Server Hostname:        192.168.0.100
+Server Port:            2010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   354.672 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Total transferred:      11200460 bytes
+HTML transferred:       650000 bytes
+Requests per second:    140.98 [#/sec] (mean)
+Time per request:       709.345 [ms] (mean)
+Time per request:       7.093 [ms] (mean, across all concurrent requests)
+Transfer rate:          30.84 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:    14  709 197.8    606    2181
+Waiting:       14  696 189.3    604    2181
+Total:         17  709 197.8    606    2181
+
+Percentage of the requests served within a certain time (ms)
+  50%    606
+  66%    696
+  75%    799
+  80%    880
+  90%    996
+  95%   1110
+  98%   1283
+  99%   1381
+ 100%   2181 (longest request)
+keepalvie test on port 2010:
+./ab_new -k -n 50000 -c 100 http://192.168.0.100:2010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        Apache/2.2.25
+Server Hostname:        192.168.0.100
+Server Port:            2010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   352.382 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    0
+Total transferred:      11200000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    141.89 [#/sec] (mean)
+Time per request:       704.763 [ms] (mean)
+Time per request:       7.048 [ms] (mean, across all concurrent requests)
+Transfer rate:          31.04 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       2
+Processing:    31  704 202.6    604    2205
+Waiting:       30  691 194.6    602    2204
+Total:         32  704 202.6    604    2205
+
+Percentage of the requests served within a certain time (ms)
+  50%    604
+  66%    690
+  75%    798
+  80%    879
+  90%    994
+  95%   1115
+  98%   1290
+  99%   1374
+ 100%   2205 (longest request)
+===================DONE=================
+Wed Nov 13 11:49:51 EST 2013
+=================Begin================
+Non-keepalvie test on port 3010:
+./ab_new -n 50000 -c 100 http://192.168.0.100:3010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        nginx/1.4.3
+Server Hostname:        192.168.0.100
+Server Port:            3010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   18.064 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Total transferred:      8000000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    2767.87 [#/sec] (mean)
+Time per request:       36.129 [ms] (mean)
+Time per request:       0.361 [ms] (mean, across all concurrent requests)
+Transfer rate:          432.48 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:     2   36  25.9     18     103
+Waiting:        2   36  25.9     18     103
+Total:          5   36  25.9     19     103
+
+Percentage of the requests served within a certain time (ms)
+  50%     19
+  66%     66
+  75%     69
+  80%     70
+  90%     71
+  95%     73
+  98%     77
+  99%     78
+ 100%    103 (longest request)
+keepalvie test on port 3010:
+./ab_new -k -n 50000 -c 100 http://192.168.0.100:3010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        nginx/1.4.3
+Server Hostname:        192.168.0.100
+Server Port:            3010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   16.446 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    0
+Total transferred:      8000000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    3040.18 [#/sec] (mean)
+Time per request:       32.893 [ms] (mean)
+Time per request:       0.329 [ms] (mean, across all concurrent requests)
+Transfer rate:          475.03 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       4
+Processing:     3   33  25.2     18      93
+Waiting:        3   33  25.2     18      93
+Total:          7   33  25.2     18      93
+
+Percentage of the requests served within a certain time (ms)
+  50%     18
+  66%     21
+  75%     67
+  80%     67
+  90%     71
+  95%     71
+  98%     73
+  99%     75
+ 100%     93 (longest request)
+===================DONE=================
+
+Apache 2.4 PHP-fpm
+
+
+Wed Nov 13 16:25:43 EST 2013
+=================Begin================
+Non-keepalvie test on port 4010:
+./ab_new -n 50000 -c 100 http://192.168.0.100:4010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        Apache/2.4.6
+Server Hostname:        192.168.0.100
+Server Port:            4010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   28.075 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Total transferred:      10400000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    1780.96 [#/sec] (mean)
+Time per request:       56.150 [ms] (mean)
+Time per request:       0.561 [ms] (mean, across all concurrent requests)
+Transfer rate:          361.76 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:     2   56  28.2     77     212
+Waiting:        2   56  28.2     76     212
+Total:          5   56  28.2     77     212
+
+Percentage of the requests served within a certain time (ms)
+  50%     77
+  66%     77
+  75%     80
+  80%     81
+  90%     81
+  95%     82
+  98%     85
+  99%     91
+ 100%    212 (longest request)
+keepalvie test on port 4010:
+./ab_new -k -n 50000 -c 100 http://192.168.0.100:4010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        Apache/2.4.6
+Server Hostname:        192.168.0.100
+Server Port:            4010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   26.756 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    0
+Total transferred:      10400000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    1868.72 [#/sec] (mean)
+Time per request:       53.513 [ms] (mean)
+Time per request:       0.535 [ms] (mean, across all concurrent requests)
+Transfer rate:          379.58 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       2
+Processing:    16   53  28.2     75     204
+Waiting:       16   53  28.2     75     204
+Total:         16   53  28.2     76     205
+
+Percentage of the requests served within a certain time (ms)
+  50%     76
+  66%     76
+  75%     77
+  80%     78
+  90%     81
+  95%     82
+  98%     85
+  99%     87
+ 100%    205 (longest request)
+===================DONE=================
+
+Apache 2.4 + suPHP
+
+Wed Nov 13 11:53:14 EST 2013
+=================Begin================
+Non-keepalvie test on port 4010:
+./ab_new -n 50000 -c 100 http://192.168.0.100:4010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        Apache/2.4.6
+Server Hostname:        192.168.0.100
+Server Port:            4010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   411.008 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Total transferred:      10400020 bytes
+HTML transferred:       650000 bytes
+Requests per second:    121.65 [#/sec] (mean)
+Time per request:       822.015 [ms] (mean)
+Time per request:       8.220 [ms] (mean, across all concurrent requests)
+Transfer rate:          24.71 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:   110  821 200.5    704    2500
+Waiting:       44  737 188.7    640    2044
+Total:        111  821 200.4    704    2500
+
+Percentage of the requests served within a certain time (ms)
+  50%    704
+  66%    800
+  75%    900
+  80%   1000
+  90%   1195
+  95%   1201
+  98%   1300
+  99%   1374
+ 100%   2500 (longest request)
+keepalvie test on port 4010:
+./ab_new -k -n 50000 -c 100 http://192.168.0.100:4010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        Apache/2.4.6
+Server Hostname:        192.168.0.100
+Server Port:            4010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   407.338 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    0
+Total transferred:      10400000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    122.75 [#/sec] (mean)
+Time per request:       814.677 [ms] (mean)
+Time per request:       8.147 [ms] (mean, across all concurrent requests)
+Transfer rate:          24.93 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:    87  814 193.0    703    2000
+Waiting:       31  728 179.4    639    1945
+Total:         90  814 193.0    704    2000
+
+Percentage of the requests served within a certain time (ms)
+  50%    704
+  66%    800
+  75%    900
+  80%   1000
+  90%   1108
+  95%   1200
+  98%   1300
+  99%   1304
+ 100%   2000 (longest request)
+===================DONE=================
+Wed Nov 13 18:31:16 EST 2013
+=================Begin================
+Non-keepalvie test on port 6010:
+./ab_new -n 50000 -c 100 http://192.168.0.100:6010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        LiteSpeed
+Server Hostname:        192.168.0.100
+Server Port:            6010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   10.973 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Total transferred:      10000000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    4556.46 [#/sec] (mean)
+Time per request:       21.947 [ms] (mean)
+Time per request:       0.219 [ms] (mean, across all concurrent requests)
+Transfer rate:          889.93 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   0.5      0       4
+Processing:     0   21  23.0     10     149
+Waiting:        0   21  23.0     10     149
+Total:          0   22  23.0     11     150
+ERROR: The median and mean for the initial connection time are more than twice the standard
+       deviation apart. These results are NOT reliable.
+
+Percentage of the requests served within a certain time (ms)
+  50%     11
+  66%     13
+  75%     17
+  80%     59
+  90%     64
+  95%     67
+  98%     70
+  99%     73
+ 100%    150 (longest request)
+keepalvie test on port 6010:
+./ab_new -k -n 50000 -c 100 http://192.168.0.100:6010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        LiteSpeed
+Server Hostname:        192.168.0.100
+Server Port:            6010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   9.739 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    49544
+Total transferred:      10247720 bytes
+HTML transferred:       650000 bytes
+Requests per second:    5133.75 [#/sec] (mean)
+Time per request:       19.479 [ms] (mean)
+Time per request:       0.195 [ms] (mean, across all concurrent requests)
+Transfer rate:          1027.52 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:     0   19  21.9     10     110
+Waiting:        0   19  21.9      9     110
+Total:          0   19  21.9     10     110
+
+Percentage of the requests served within a certain time (ms)
+  50%     10
+  66%     12
+  75%     13
+  80%     17
+  90%     63
+  95%     65
+  98%     67
+  99%     71
+ 100%    110 (longest request)
+===================DONE=================
+
+LSWS 4.2.5 in PHP suEXEC daemon mode 
+
+Thu Nov 14 17:10:59 EST 2013
+=================Begin================
+Non-keepalvie test on port 7010:
+./ab_new -n 50000 -c 100 http://192.168.0.100:7010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        LiteSpeed
+Server Hostname:        192.168.0.100
+Server Port:            7010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   9.427 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Total transferred:      8900000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    5303.95 [#/sec] (mean)
+Time per request:       18.854 [ms] (mean)
+Time per request:       0.189 [ms] (mean, across all concurrent requests)
+Transfer rate:          921.98 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.2      0       3
+Processing:     0   19  21.9      9     162
+Waiting:        0   19  21.9      9     162
+Total:          1   19  21.9     10     162
+
+Percentage of the requests served within a certain time (ms)
+  50%     10
+  66%     12
+  75%     14
+  80%     18
+  90%     64
+  95%     66
+  98%     68
+  99%     72
+ 100%    162 (longest request)
+keepalvie test on port 7010:
+./ab_new -k -n 50000 -c 100 http://192.168.0.100:7010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        LiteSpeed
+Server Hostname:        192.168.0.100
+Server Port:            7010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   8.639 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    49558
+Total transferred:      10733646 bytes
+HTML transferred:       650000 bytes
+Requests per second:    5787.90 [#/sec] (mean)
+Time per request:       17.277 [ms] (mean)
+Time per request:       0.173 [ms] (mean, across all concurrent requests)
+Transfer rate:          1213.38 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       3
+Processing:     0   17  20.5      8     163
+Waiting:        0   17  20.5      8     163
+Total:          0   17  20.5      8     163
+
+Percentage of the requests served within a certain time (ms)
+  50%      8
+  66%      9
+  75%     10
+  80%     13
+  90%     61
+  95%     62
+  98%     66
+  99%     68
+ 100%    163 (longest request)
+===================DONE=================
+
+
+##################################################################
+# LiteSpeed is PHP-FPM capable
+#  and able to deliver better RPS than other web servers + PHP-FPM
+##################################################################
+
+> curl -i http://192.168.0.100:7010/phpinfo.php
+HTTP/1.1 200 OK
+Transfer-Encoding: chunked
+Date: Thu, 14 Nov 2013 21:36:06 GMT
+Server: LiteSpeed
+Connection: Keep-Alive
+Keep-Alive: timeout=5, max=100
+X-Powered-By: PHP/5.4.21
+Content-Type: text/html
+
+<HTML>
+<BODY>
+   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<style type="text/css">
+body {background-color: #ffffff; color: #000000;}
+body, td, th, h1, h2 {font-family: sans-serif;}
+pre {margin: 0px; font-family: monospace;}
+a:link {color: #000099; text-decoration: none; background-color: #ffffff;}
+a:hover {text-decoration: underline;}
+table {border-collapse: collapse;}
+.center {text-align: center;}
+.center table { margin-left: auto; margin-right: auto; text-align: left;}
+.center th { text-align: center !important; }
+td, th { border: 1px solid #000000; font-size: 75%; vertical-align: baseline;}
+h1 {font-size: 150%;}
+h2 {font-size: 125%;}
+.p {text-align: left;}
+.e {background-color: #ccccff; font-weight: bold; color: #000000;}
+.h {background-color: #9999cc; font-weight: bold; color: #000000;}
+.v {background-color: #cccccc; color: #000000;}
+.vr {background-color: #cccccc; text-align: right; color: #000000;}
+img {float: right; border: 0px;}
+hr {width: 600px; background-color: #cccccc; border: 0px; height: 1px; color: #000000;}
+</style>
+<title>phpinfo()</title><meta name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE" /></head>
+<body><div class="center">
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><td>
+<a href="http://www.php.net/"><img border="0" src="/phpinfo.php?=PHPE9568F34-D428-11d2-A769-00AA001ACF42" alt="PHP Logo" /></a><h1 class="p">PHP Version 5.4.21</h1>
+</td></tr>
+</table><br />
+<table border="0" cellpadding="3" width="600">
+<tr><td class="e">System </td><td class="v">Linux benchmark 2.6.32-042stab081.3 #1 SMP Wed Oct 23 16:32:28 MSK 2013 x86_64 </td></tr>
+<tr><td class="e">Build Date </td><td class="v">Oct 20 2013 10:06:43 </td></tr>
+<tr><td class="e">Configure Command </td><td class="v"> &#039;./configure&#039;  &#039;--disable-all&#039; &#039;--enable-fpm&#039; </td></tr>
+<tr><td class="e">Server API </td><td class="v">FPM/FastCGI </td></tr>
+<tr><td class="e">Virtual Directory Support </td><td class="v">disabled </td></tr>
+<tr><td class="e">Configuration File (php.ini) Path </td><td class="v">/usr/local/lib </td></tr>
+<tr><td class="e">Loaded Configuration File </td><td class="v">/usr/local/etc/php.ini </td></tr>
+<tr><td class="e">Scan this dir for additional .ini files </td><td class="v">(none) </td></tr>
+<tr><td class="e">Additional .ini files parsed </td><td class="v">(none) </td></tr>
+<tr><td class="e">PHP API </td><td class="v">20100412 </td></tr>
+<tr><td class="e">PHP Extension </td><td class="v">20100525 </td></tr>
+<tr><td class="e">Zend Extension </td><td class="v">220100525 </td></tr>
+<tr><td class="e">Zend Extension Build </td><td class="v">API220100525,NTS </td></tr>
+<tr><td class="e">PHP Extension Build </td><td class="v">API20100525,NTS </td></tr>
+<tr><td class="e">Debug Build </td><td class="v">no </td></tr>
+<tr><td class="e">Thread Safety </td><td class="v">disabled </td></tr>
+<tr><td class="e">Zend Signal Handling </td><td class="v">disabled </td></tr>
+<tr><td class="e">Zend Memory Manager </td><td class="v">enabled </td></tr>
+<tr><td class="e">Zend Multibyte Support </td><td class="v">disabled </td></tr>
+<tr><td class="e">IPv6 Support </td><td class="v">enabled </td></tr>
+<tr><td class="e">DTrace Support </td><td class="v">disabled </td></tr>
+<tr><td class="e">Registered PHP Streams</td><td class="v">php, file, glob, data, http, ftp</td></tr>
+<tr><td class="e">Registered Stream Socket Transports</td><td class="v">tcp, udp, unix, udg</td></tr>
+<tr><td class="e">Registered Stream Filters</td><td class="v">string.rot13, string.toupper, string.tolower, string.strip_tags, convert.*, consumed, dechunk</td></tr>
+</table><br />
+<table border="0" cellpadding="3" width="600">
+<tr class="v"><td>
+<a href="http://www.zend.com/"><img border="0" src="/phpinfo.php?=PHPE9568F35-D428-11d2-A769-00AA001ACF42" alt="Zend logo" /></a>
+This program makes use of the Zend Scripting Language Engine:<br />Zend&nbsp;Engine&nbsp;v2.4.0,&nbsp;Copyright&nbsp;(c)&nbsp;1998-2013&nbsp;Zend&nbsp;Technologies<br /></td></tr>
+</table><br />
+<hr />
+<h1><a href="/phpinfo.php?=PHPB8B5F2A0-3C92-11d3-A3A9-4C7B08C10000">PHP Credits</a></h1>
+<hr />
+<h1>Configuration</h1>
+<h2><a name="module_cgi-fcgi">cgi-fcgi</a></h2>
+<table border="0" cellpadding="3" width="600">
+<tr><td class="e">php-fpm </td><td class="v">active </td></tr>
+</table><br />
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><th>Directive</th><th>Local Value</th><th>Master Value</th></tr>
+<tr><td class="e">cgi.discard_path</td><td class="v">0</td><td class="v">0</td></tr>
+<tr><td class="e">cgi.fix_pathinfo</td><td class="v">1</td><td class="v">1</td></tr>
+<tr><td class="e">cgi.force_redirect</td><td class="v">1</td><td class="v">1</td></tr>
+<tr><td class="e">cgi.nph</td><td class="v">0</td><td class="v">0</td></tr>
+<tr><td class="e">cgi.redirect_status_env</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">cgi.rfc2616_headers</td><td class="v">0</td><td class="v">0</td></tr>
+<tr><td class="e">fastcgi.error_header</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">fastcgi.logging</td><td class="v">1</td><td class="v">1</td></tr>
+<tr><td class="e">fpm.config</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+</table><br />
+<h2><a name="module_Core">Core</a></h2>
+<table border="0" cellpadding="3" width="600">
+<tr><td class="e">PHP Version </td><td class="v">5.4.21 </td></tr>
+</table><br />
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><th>Directive</th><th>Local Value</th><th>Master Value</th></tr>
+<tr><td class="e">allow_url_fopen</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">allow_url_include</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">always_populate_raw_post_data</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">arg_separator.input</td><td class="v">&amp;</td><td class="v">&amp;</td></tr>
+<tr><td class="e">arg_separator.output</td><td class="v">&amp;</td><td class="v">&amp;</td></tr>
+<tr><td class="e">asp_tags</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">auto_append_file</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">auto_globals_jit</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">auto_prepend_file</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">browscap</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">default_charset</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">default_mimetype</td><td class="v">text/html</td><td class="v">text/html</td></tr>
+<tr><td class="e">disable_classes</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">disable_functions</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">display_errors</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">display_startup_errors</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">doc_root</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">docref_ext</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">docref_root</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">enable_dl</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">enable_post_data_reading</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">error_append_string</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">error_log</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">error_prepend_string</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">error_reporting</td><td class="v">22527</td><td class="v">22527</td></tr>
+<tr><td class="e">exit_on_timeout</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">expose_php</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">extension_dir</td><td class="v">/usr/local/lib/php/extensions/no-debug-non-zts-20100525</td><td class="v">/usr/local/lib/php/extensions/no-debug-non-zts-20100525</td></tr>
+<tr><td class="e">file_uploads</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">highlight.comment</td><td class="v"><font style="color: #FF8000">#FF8000</font></td><td class="v"><font style="color: #FF8000">#FF8000</font></td></tr>
+<tr><td class="e">highlight.default</td><td class="v"><font style="color: #0000BB">#0000BB</font></td><td class="v"><font style="color: #0000BB">#0000BB</font></td></tr>
+<tr><td class="e">highlight.html</td><td class="v"><font style="color: #000000">#000000</font></td><td class="v"><font style="color: #000000">#000000</font></td></tr>
+<tr><td class="e">highlight.keyword</td><td class="v"><font style="color: #007700">#007700</font></td><td class="v"><font style="color: #007700">#007700</font></td></tr>
+<tr><td class="e">highlight.string</td><td class="v"><font style="color: #DD0000">#DD0000</font></td><td class="v"><font style="color: #DD0000">#DD0000</font></td></tr>
+<tr><td class="e">html_errors</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">ignore_repeated_errors</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">ignore_repeated_source</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">ignore_user_abort</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">implicit_flush</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">include_path</td><td class="v">.:</td><td class="v">.:</td></tr>
+<tr><td class="e">log_errors</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">log_errors_max_len</td><td class="v">1024</td><td class="v">1024</td></tr>
+<tr><td class="e">mail.add_x_header</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">mail.force_extra_parameters</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">mail.log</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">max_execution_time</td><td class="v">30</td><td class="v">30</td></tr>
+<tr><td class="e">max_file_uploads</td><td class="v">20</td><td class="v">20</td></tr>
+<tr><td class="e">max_input_nesting_level</td><td class="v">64</td><td class="v">64</td></tr>
+<tr><td class="e">max_input_time</td><td class="v">60</td><td class="v">60</td></tr>
+<tr><td class="e">max_input_vars</td><td class="v">1000</td><td class="v">1000</td></tr>
+<tr><td class="e">memory_limit</td><td class="v">128M</td><td class="v">128M</td></tr>
+<tr><td class="e">open_basedir</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">output_buffering</td><td class="v">4096</td><td class="v">4096</td></tr>
+<tr><td class="e">output_handler</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">post_max_size</td><td class="v">8M</td><td class="v">8M</td></tr>
+<tr><td class="e">precision</td><td class="v">14</td><td class="v">14</td></tr>
+<tr><td class="e">realpath_cache_size</td><td class="v">16K</td><td class="v">16K</td></tr>
+<tr><td class="e">realpath_cache_ttl</td><td class="v">120</td><td class="v">120</td></tr>
+<tr><td class="e">register_argc_argv</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">report_memleaks</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">report_zend_debug</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">request_order</td><td class="v">GP</td><td class="v">GP</td></tr>
+<tr><td class="e">sendmail_from</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">sendmail_path</td><td class="v">/usr/sbin/sendmail&nbsp;-t&nbsp;-i&nbsp;</td><td class="v">/usr/sbin/sendmail&nbsp;-t&nbsp;-i&nbsp;</td></tr>
+<tr><td class="e">serialize_precision</td><td class="v">17</td><td class="v">17</td></tr>
+<tr><td class="e">short_open_tag</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">SMTP</td><td class="v">localhost</td><td class="v">localhost</td></tr>
+<tr><td class="e">smtp_port</td><td class="v">25</td><td class="v">25</td></tr>
+<tr><td class="e">sql.safe_mode</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">track_errors</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">unserialize_callback_func</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">upload_max_filesize</td><td class="v">2M</td><td class="v">2M</td></tr>
+<tr><td class="e">upload_tmp_dir</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">user_dir</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">user_ini.cache_ttl</td><td class="v">300</td><td class="v">300</td></tr>
+<tr><td class="e">user_ini.filename</td><td class="v">.user.ini</td><td class="v">.user.ini</td></tr>
+<tr><td class="e">variables_order</td><td class="v">GPCS</td><td class="v">GPCS</td></tr>
+<tr><td class="e">xmlrpc_error_number</td><td class="v">0</td><td class="v">0</td></tr>
+<tr><td class="e">xmlrpc_errors</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">zend.detect_unicode</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">zend.enable_gc</td><td class="v">On</td><td class="v">On</td></tr>
+<tr><td class="e">zend.multibyte</td><td class="v">Off</td><td class="v">Off</td></tr>
+<tr><td class="e">zend.script_encoding</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+</table><br />
+<h2><a name="module_date">date</a></h2>
+<table border="0" cellpadding="3" width="600">
+<tr><td class="e">date/time support </td><td class="v">enabled </td></tr>
+<tr><td class="e">&quot;Olson&quot; Timezone Database Version </td><td class="v">2013.6 </td></tr>
+<tr><td class="e">Timezone Database </td><td class="v">internal </td></tr>
+<tr><td class="e">Default timezone </td><td class="v">America/New_York </td></tr>
+</table><br />
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><th>Directive</th><th>Local Value</th><th>Master Value</th></tr>
+<tr><td class="e">date.default_latitude</td><td class="v">31.7667</td><td class="v">31.7667</td></tr>
+<tr><td class="e">date.default_longitude</td><td class="v">35.2333</td><td class="v">35.2333</td></tr>
+<tr><td class="e">date.sunrise_zenith</td><td class="v">90.583333</td><td class="v">90.583333</td></tr>
+<tr><td class="e">date.sunset_zenith</td><td class="v">90.583333</td><td class="v">90.583333</td></tr>
+<tr><td class="e">date.timezone</td><td class="v">America/New_York</td><td class="v">America/New_York</td></tr>
+</table><br />
+<h2><a name="module_ereg">ereg</a></h2>
+<table border="0" cellpadding="3" width="600">
+<tr><td class="e">Regex Library </td><td class="v">Bundled library enabled </td></tr>
+</table><br />
+<h2><a name="module_pcre">pcre</a></h2>
+<table border="0" cellpadding="3" width="600">
+<tr><td class="e">PCRE (Perl Compatible Regular Expressions) Support </td><td class="v">enabled </td></tr>
+<tr><td class="e">PCRE Library Version </td><td class="v">8.32 2012-11-30 </td></tr>
+</table><br />
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><th>Directive</th><th>Local Value</th><th>Master Value</th></tr>
+<tr><td class="e">pcre.backtrack_limit</td><td class="v">1000000</td><td class="v">1000000</td></tr>
+<tr><td class="e">pcre.recursion_limit</td><td class="v">100000</td><td class="v">100000</td></tr>
+</table><br />
+<h2><a name="module_Reflection">Reflection</a></h2>
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><th>Reflection</th><th>enabled</th></tr>
+<tr><td class="e">Version </td><td class="v">$Id: c4a7c554f00da47fe9cff384d18c532a1a959dff $ </td></tr>
+</table><br />
+<h2><a name="module_SPL">SPL</a></h2>
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><th>SPL support</th><th>enabled</th></tr>
+<tr><td class="e">Interfaces </td><td class="v">Countable, OuterIterator, RecursiveIterator, SeekableIterator, SplObserver, SplSubject </td></tr>
+<tr><td class="e">Classes </td><td class="v">AppendIterator, ArrayIterator, ArrayObject, BadFunctionCallException, BadMethodCallException, CachingIterator, CallbackFilterIterator, DirectoryIterator, DomainException, EmptyIterator, FilesystemIterator, FilterIterator, GlobIterator, InfiniteIterator, InvalidArgumentException, IteratorIterator, LengthException, LimitIterator, LogicException, MultipleIterator, NoRewindIterator, OutOfBoundsException, OutOfRangeException, OverflowException, ParentIterator, RangeException, RecursiveArrayIterator, RecursiveCachingIterator, RecursiveCallbackFilterIterator, RecursiveDirectoryIterator, RecursiveFilterIterator, RecursiveIteratorIterator, RecursiveRegexIterator, RecursiveTreeIterator, RegexIterator, RuntimeException, SplDoublyLinkedList, SplFileInfo, SplFileObject, SplFixedArray, SplHeap, SplMinHeap, SplMaxHeap, SplObjectStorage, SplPriorityQueue, SplQueue, SplStack, SplTempFileObject, UnderflowException, UnexpectedValueException </td></tr>
+</table><br />
+<h2><a name="module_standard">standard</a></h2>
+<table border="0" cellpadding="3" width="600">
+<tr><td class="e">Dynamic Library Support </td><td class="v">enabled </td></tr>
+<tr><td class="e">Path to sendmail </td><td class="v">/usr/sbin/sendmail -t -i  </td></tr>
+</table><br />
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><th>Directive</th><th>Local Value</th><th>Master Value</th></tr>
+<tr><td class="e">assert.active</td><td class="v">1</td><td class="v">1</td></tr>
+<tr><td class="e">assert.bail</td><td class="v">0</td><td class="v">0</td></tr>
+<tr><td class="e">assert.callback</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">assert.quiet_eval</td><td class="v">0</td><td class="v">0</td></tr>
+<tr><td class="e">assert.warning</td><td class="v">1</td><td class="v">1</td></tr>
+<tr><td class="e">auto_detect_line_endings</td><td class="v">0</td><td class="v">0</td></tr>
+<tr><td class="e">default_socket_timeout</td><td class="v">60</td><td class="v">60</td></tr>
+<tr><td class="e">from</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">url_rewriter.tags</td><td class="v">a=href,area=href,frame=src,input=src,form=fakeentry</td><td class="v">a=href,area=href,frame=src,input=src,form=fakeentry</td></tr>
+<tr><td class="e">user_agent</td><td class="v"><i>no value</i></td><td class="v"><i>no value</i></td></tr>
+</table><br />
+<h2>Additional Modules</h2>
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><th>Module Name</th></tr>
+</table><br />
+<h2>Environment</h2>
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><th>Variable</th><th>Value</th></tr>
+<tr><td class="e">USER </td><td class="v">nobody </td></tr>
+<tr><td class="e">HOME </td><td class="v">/ </td></tr>
+</table><br />
+<h2>PHP Variables</h2>
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><th>Variable</th><th>Value</th></tr>
+<tr><td class="e">_SERVER["USER"]</td><td class="v">nobody</td></tr>
+<tr><td class="e">_SERVER["HOME"]</td><td class="v">/</td></tr>
+<tr><td class="e">_SERVER["FCGI_ROLE"]</td><td class="v">RESPONDER</td></tr>
+<tr><td class="e">_SERVER["GATEWAY_INTERFACE"]</td><td class="v">CGI/1.1</td></tr>
+<tr><td class="e">_SERVER["SERVER_SOFTWARE"]</td><td class="v">LiteSpeed</td></tr>
+<tr><td class="e">_SERVER["SERVER_PROTOCOL"]</td><td class="v">HTTP/1.1</td></tr>
+<tr><td class="e">_SERVER["REQUEST_METHOD"]</td><td class="v">GET</td></tr>
+<tr><td class="e">_SERVER["SCRIPT_FILENAME"]</td><td class="v">/usr/local/lsws-4.2.5/DEFAULT/html/phpinfo.php</td></tr>
+<tr><td class="e">_SERVER["QUERY_STRING"]</td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">_SERVER["SCRIPT_NAME"]</td><td class="v">/phpinfo.php</td></tr>
+<tr><td class="e">_SERVER["DOCUMENT_ROOT"]</td><td class="v">/usr/local/lsws-4.2.5/DEFAULT/html</td></tr>
+<tr><td class="e">_SERVER["REMOTE_ADDR"]</td><td class="v">192.168.0.20</td></tr>
+<tr><td class="e">_SERVER["REMOTE_PORT"]</td><td class="v">40040</td></tr>
+<tr><td class="e">_SERVER["SERVER_ADDR"]</td><td class="v">192.168.0.100</td></tr>
+<tr><td class="e">_SERVER["SERVER_NAME"]</td><td class="v">192.168.0.100</td></tr>
+<tr><td class="e">_SERVER["SERVER_ADMIN"]</td><td class="v"><i>no value</i></td></tr>
+<tr><td class="e">_SERVER["SERVER_PORT"]</td><td class="v">7010</td></tr>
+<tr><td class="e">_SERVER["REQUEST_URI"]</td><td class="v">/phpinfo.php</td></tr>
+<tr><td class="e">_SERVER["HTTP_ACCEPT"]</td><td class="v">*/*</td></tr>
+<tr><td class="e">_SERVER["HTTP_HOST"]</td><td class="v">192.168.0.100:7010</td></tr>
+<tr><td class="e">_SERVER["HTTP_USER_AGENT"]</td><td class="v">curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.14.0.0 zlib/1.2.3 libidn/1.18 libssh2/1.4.2</td></tr>
+<tr><td class="e">_SERVER["PHP_SELF"]</td><td class="v">/phpinfo.php</td></tr>
+<tr><td class="e">_SERVER["REQUEST_TIME_FLOAT"]</td><td class="v">1384464966.3188</td></tr>
+<tr><td class="e">_SERVER["REQUEST_TIME"]</td><td class="v">1384464966</td></tr>
+</table><br />
+<h2>PHP License</h2>
+<table border="0" cellpadding="3" width="600">
+<tr class="v"><td>
+<p>
+This program is free software; you can redistribute it and/or modify it under the terms of the PHP License as published by the PHP Group and included in the distribution in the file:  LICENSE
+</p>
+<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</p>
+<p>If you did not receive a copy of the PHP license, or have any questions about PHP licensing, please contact license@php.net.
+</p>
+</td></tr>
+</table><br />
+</div></body></html></BODY>
+</HTML>
+Thu Nov 14 16:33:47 EST 2013
+=================Begin================
+Non-keepalvie test on port 7010:
+./ab_new -n 50000 -c 100 http://192.168.0.100:7010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        LiteSpeed
+Server Hostname:        192.168.0.100
+Server Port:            7010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   12.619 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Total transferred:      8900000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    3962.37 [#/sec] (mean)
+Time per request:       25.237 [ms] (mean)
+Time per request:       0.252 [ms] (mean, across all concurrent requests)
+Transfer rate:          688.77 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       2
+Processing:     0   25  25.7     12      86
+Waiting:        0   25  25.7     12      86
+Total:          0   25  25.7     13      86
+
+Percentage of the requests served within a certain time (ms)
+  50%     13
+  66%     19
+  75%     55
+  80%     62
+  90%     69
+  95%     74
+  98%     79
+  99%     81
+ 100%     86 (longest request)
+keepalvie test on port 7010:
+./ab_new -k -n 50000 -c 100 http://192.168.0.100:7010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        LiteSpeed
+Server Hostname:        192.168.0.100
+Server Port:            7010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   10.233 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    49542
+Total transferred:      10733054 bytes
+HTML transferred:       650000 bytes
+Requests per second:    4886.23 [#/sec] (mean)
+Time per request:       20.466 [ms] (mean)
+Time per request:       0.205 [ms] (mean, across all concurrent requests)
+Transfer rate:          1024.30 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       2
+Processing:     2   20  22.4     12      74
+Waiting:        2   20  22.4     12      74
+Total:          2   20  22.4     12      74
+
+Percentage of the requests served within a certain time (ms)
+  50%     12
+  66%     14
+  75%     15
+  80%     56
+  90%     65
+  95%     67
+  98%     68
+  99%     69
+ 100%     74 (longest request)
+===================DONE=================
+
+Normal Worker Group Setup
+
+
+Wed Nov 13 17:48:27 EST 2013
+=================Begin================
+Non-keepalvie test on port 7010:
+./ab_new -n 50000 -c 100 http://192.168.0.100:7010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        LiteSpeed
+Server Hostname:        192.168.0.100
+Server Port:            7010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   10.357 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Total transferred:      8900000 bytes
+HTML transferred:       650000 bytes
+Requests per second:    4827.76 [#/sec] (mean)
+Time per request:       20.714 [ms] (mean)
+Time per request:       0.207 [ms] (mean, across all concurrent requests)
+Transfer rate:          839.20 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.2      0       3
+Processing:     0   20  23.2     10      82
+Waiting:        0   20  23.2     10      82
+Total:          0   21  23.2     10      82
+
+Percentage of the requests served within a certain time (ms)
+  50%     10
+  66%     13
+  75%     18
+  80%     56
+  90%     65
+  95%     69
+  98%     74
+  99%     76
+ 100%     82 (longest request)
+keepalvie test on port 7010:
+./ab_new -k -n 50000 -c 100 http://192.168.0.100:7010/helloworld.php
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.0.100 (be patient)
+
+
+Server Software:        LiteSpeed
+Server Hostname:        192.168.0.100
+Server Port:            7010
+
+Document Path:          /helloworld.php
+Document Length:        13 bytes
+
+Concurrency Level:      100
+Time taken for tests:   8.817 seconds
+Complete requests:      50000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    49541
+Total transferred:      10733017 bytes
+HTML transferred:       650000 bytes
+Requests per second:    5670.65 [#/sec] (mean)
+Time per request:       17.635 [ms] (mean)
+Time per request:       0.176 [ms] (mean, across all concurrent requests)
+Transfer rate:          1188.73 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       2
+Processing:     0   18  21.1      9     102
+Waiting:        0   18  21.1      9     102
+Total:          0   18  21.1      9     102
+
+Percentage of the requests served within a certain time (ms)
+  50%      9
+  66%     10
+  75%     13
+  80%     15
+  90%     62
+  95%     64
+  98%     68
+  99%     68
+ 100%    102 (longest request)
+===================DONE=================
